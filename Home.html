@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Css.css">
+    <title>حجوزات مقر شركة هدية</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/locales/ar.global.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="Header">
+        <!--<h1 class="HeaderH1">مــوقــــع حـــجـــــوزات مــــقــــر هــــــديـــــــة</h1>-->
+        <img src="hadiyah.avif" class="HadiyahLogo" href="Home.html">
+
+
+
+
+
+        <div id="authButtons">
+            <button onclick="openModal('loginModal')" class="auth-btn">تسجيل دخول</button>
+            <button onclick="openModal('registerModal')" class="auth-btn">إنشاء حساب</button>
+        </div>
+
+
+        <div id="user-options" style="display: none;">
+            <button onclick="logout()" class="auth-btn">تسجيل خروج</button>
+        </div>
+
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('loginModal')">&times;</span>
+                <h2>تسجيل الدخول</h2>
+                <input type="email" id="loginEmail" placeholder="البريد الإلكتروني">
+                <input type="password" id="loginPassword" placeholder="كلمة المرور">
+                <button class="Register-btn" onclick="login()">دخول</button>
+            </div>
+        </div>
+
+        <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('registerModal')">&times;</span>
+                <h2>إنشاء حساب جديد</h2>
+                <input type="text" id="regName" placeholder="الاسم الكامل">
+                <input type="email" id="regEmail" placeholder="البريد الإلكتروني">
+
+
+
+                <select id="regDepartment" class="regDepartmentOPtion">
+                    <option value="" disabled selected>اختر القسم</option>
+                    <option value="قسم تقنية المعلومات">قسم تقنية المعلومات </option>
+                    <option value="الموارد البشرية">الموارد البشرية</option>
+                    <option value="قسم التسويق">قسم التسويق </option>
+                    <option value="الإدارة">الإدارة</option>
+                    <option value="قسم الإدارة المالية">قسم الإدارة المالية</option>
+                    <option value="قسم الإعلام">قسم الإعلام</option>
+                    <option value="قسم المشتريات">قسم المشتريات</option>
+                    <option value="مجلس الادارة">مجلس الادارة</option>
+                </select>
+
+
+
+
+
+                <input type="password" id="regPassword" placeholder="كلمة المرور">
+                <button class="Register-btn" onclick="register()">إنشاء الحساب</button>
+            </div>
+        </div>
+
+        <div id="overlay" class="overlay"></div>
+
+
+
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            <img src="tiles_12613180.png" alt="menu">
+
+
+        </button>
+
+
+
+        <div class="sidebar" id="sidebar" onmouseleave="closeMenu()">
+            <div id="user-sidebar-info" class="sidebar-info">
+                <p><span id="display-user-name"></span></p>
+                <p> <span id="display-user-dept"></span></p>
+            </div>
+
+            <div class="menu-box">
+
+                <a href="Home.html">
+                    <span>الرئيسية</span>
+                    <!--<img src="homepage.png" alt="">-->
+                </a>
+
+                <a href="#zomehere">
+                    <span>الحجوزات</span>
+                    <!--<img src="booking-online.png" alt="">-->
+                </a>
+
+                <a href="#zomehere2">
+                    <span>جدولة القاعات</span>
+                    <!--<img src="calendar.png" alt="">-->
+                </a>
+
+                <a href="Invitations.html">
+                    <span>الدعوات</span>
+                    <!--<img src="add-user.png" alt="">-->
+                </a>
+
+                <a href="account.html">
+                    <span>حسابي</span>
+                   <!-- <img src="profile.png" alt="">-->
+                </a>
+
+                <a href="Employees-Page.html">
+                    <span>الاقسام</span>
+                    <!--<img src="group-chat.png" alt="">-->
+                </a>
+
+            </div>
+            <img src="hadiyah.avif" id="menulogo">
+
+        </div>
+
+    </header>
+
+
+
+
+
+
+    <main dir="rtl" class="main-container">
+        <section class="hero-section">
+
+            <!--<img src="q1.jpg" class="MainD">-->
+            <div class="MainD2">
+                <h1 class="main-title">احـــــجــــز مـــساحـــــتــك بــــــــكــل ســـــهــــولـــــة</h1>
+                <h2 class="h2-main-title"> ↩ جمعية هدية الحاج والمعتمر- المقر الاداري في النسيم </h2>
+            </div>
+            <div class="background-color"></div>
+        </section>
+
+        <section class="second-section">
+
+
+            <img src="backphoto.jpg" class="pattern-img" alt="background pattern">
+            <div class="wihte-class" id="zomehere"></div>
+
+
+            <div class="container-flex">
+                <div class="text-links">
+                    <h1>اخـــــــتــر الــــــــقـــــاعـــــــة</h1>
+
+<a href="meeting-room.html"
+   class="sub-title"
+   onmouseenter="startSlideshow('meeting')"
+   onmouseleave="stopSlideshow()">
+   ❅ قاعة الاجتماعات
+</a>
+
+<a href="workshop.html"
+   class="sub-title"
+   onmouseenter="startSlideshow('workshop')"
+   onmouseleave="stopSlideshow()">
+   ❅ ورشة العمل
+</a>
+
+</div>
+<div class="image-viewer">
+  <div class="image-placeholder">
+    <img id="display-img" src="mp.jpeg" alt="المساحة">
+  </div>
+   </div>
+</div>
+
+
+
+
+
+            <div class="calendar-section" id="zomehere2" style="position: absolute; z-index: 10;">
+                <h2 class="calendar-title">جدولة القاعات</h2>
+                <div id="home-calendar-display" dir="ltr"></div style="position: absolute; z-index: 20;">
+            </div>
+
+
+
+
+            <div id="bookingDetailsModal" class="modal">
+                <div class="modal-content-Homepage">
+                    <span class="close" onclick="closeModal('bookingDetailsModal')">&times;</span>
+                    <h2 id="detailRoomType" style="color: #1a4731; margin-bottom: 15px;">تفاصيل الحجز</h2>
+                    <hr style="border: 0.5px solid #eee; margin-bottom: 20px;">
+
+                    <div style="text-align: right; line-height: 1.8;">
+                        <p><strong>الداعي:</strong> <span id="detailName"></span></p>
+                        <p><strong>الموضوع:</strong> <span id="detailTopic"></span></p>
+                        <p><strong>الأجندة:</strong> <span id="detailAgenda"></span></p>
+                        <p><strong>التاريخ:</strong> <span id="detailDate"></span></p>
+                        <p><strong>الوقت:</strong> <span id="detailTime"></span></p>
+
+                        <div style="margin-top: 15px;">
+                            <strong>المدعوون:</strong>
+                            <ul id="detailGuestsList"
+                                style="list-style-type: circle; margin-right: 20px; margin-top: 5px;">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+        <section class="bottom-section">
+
+            <footer class="footer">
+                <p>Hadiyah Charity Association @2025 جميع الحقوق محفوظة لجمعية هدية الحاج والمعتمر </p>
+            </footer>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="module" src="javaS.js"></script>
+</body>
+
+</html>

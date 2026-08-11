@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Css.css">
+
+  <title>الاقسام والموظفين</title>
+</head>
+
+<body>
+
+  <header class="Header">
+    <a href="Home.html">
+      <img src="hadiyah.avif" class="HadiyahLogo" alt="Logo">
+    </a>
+
+
+
+    <div id="authButtons">
+      <button onclick="openModal('loginModal')" class="auth-btn">تسجيل دخول</button>
+      <button onclick="openModal('registerModal')" class="auth-btn">إنشاء حساب</button>
+    </div>
+
+
+    <div id="user-options" style="display: none;">
+      <button onclick="logout()" class="auth-btn">تسجيل خروج</button>
+    </div>
+
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>تسجيل الدخول</h2>
+        <input type="email" id="loginEmail" placeholder="البريد الإلكتروني">
+        <input type="password" id="loginPassword" placeholder="كلمة المرور">
+        <button class="Register-btn" onclick="login()">دخول</button>
+      </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h2>إنشاء حساب جديد</h2>
+        <input type="text" id="regName" placeholder="الاسم الكامل">
+        <input type="email" id="regEmail" placeholder="البريد الإلكتروني">
+
+
+
+        <select id="regDepartment" class="regDepartmentOPtion">
+          <option value="" disabled selected>اختر القسم</option>
+          <option value="قسم تقنية المعلومات">قسم تقنية المعلومات </option>
+          <option value="الموارد البشرية">الموارد البشرية</option>
+          <option value="قسم التسويق">قسم التسويق </option>
+          <option value="الإدارة">الإدارة</option>
+          <option value="قسم الإدارة المالية">قسم الإدارة المالية</option>
+          <option value="قسم الإعلام">قسم الإعلام</option>
+          <option value="قسم المشتريات">قسم المشتريات</option>
+          <option value="مجلس الادارة">مجلس الادارة</option>
+        </select>
+
+
+
+
+
+        <input type="password" id="regPassword" placeholder="كلمة المرور">
+        <button class="Register-btn" onclick="register()">إنشاء الحساب</button>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+
+
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      <img src="tiles_12613180.png" alt="menu">
+
+
+    </button>
+
+
+
+    <div class="sidebar" id="sidebar" onmouseleave="closeMenu()">
+      <div id="user-sidebar-info" class="sidebar-info">
+        <p><span id="display-user-name"></span></p>
+        <p> <span id="display-user-dept"></span></p>
+      </div>
+
+      <div class="menu-box">
+
+                 <a href="Home.html">
+                    <span>الرئيسية</span>
+                    <!--<img src="homepage.png" alt="">-->
+                </a>
+
+                <a href="home.html">
+                    <span>الحجوزات</span>
+                    <!--<img src="booking-online.png" alt="">-->
+                </a>
+
+                <a href="home.html">
+                    <span>جدولة القاعات</span>
+                    <!--<img src="calendar.png" alt="">-->
+                </a>
+
+                <a href="Invitations.html">
+                    <span>الدعوات</span>
+                    <!--<img src="add-user.png" alt="">-->
+                </a>
+
+                <a href="account.html">
+                    <span>حسابي</span>
+                   <!-- <img src="profile.png" alt="">-->
+                </a>
+
+                <a href="Employees-Page.html">
+                    <span>الاقسام</span>
+                    <!--<img src="group-chat.png" alt="">-->
+                </a>
+
+      </div>
+      <img src="hadiyah.avif" id="menulogo">
+
+    </div>
+
+  </header>
+
+
+
+
+
+
+
+
+
+  <main dir="rtl" class="main-container-EmployeesPage">
+
+    <section class="hero-section-EmployeesPage">
+      <div class="hero-sections-style-EmployeesPage">
+        <h1 class="main-title-EmployeesPage"> الاقـــســـام والـــمـوظـــفـيـــن</h1>
+      </div>
+    </section>
+
+    <section class="second-section-EmployeesPage">
+
+      <div class="EmployeesPage-search">
+        <input type="text" id="Employees-Page-search" placeholder="ابحث عن اسم أو قسم..." onkeyup="filterEmployees()">
+      </div>
+
+      <div class="dep-container-EmployeesPage">
+        <div class="dept-box">
+          <h3>الإدارة</h3>
+          <div id="Administration-container" class="Administration-container"></div>
+        </div>
+
+        <div class="dept-box">
+          <h3>تقنية المعلومات</h3>
+          <div id="Technicians-container" class="Technicians-container"></div>
+        </div>
+
+        <div class="dept-box">
+          <h3>الموارد البشرية</h3>
+          <div id="Hr-container" class="Hr-container"></div>
+        </div>
+
+
+
+        <div class="dept-box">
+          <h3>قسم التسويق </h3>
+          <div id="marketing-container" class="marketing-container"></div>
+        </div>
+
+
+        <div class="dept-box">
+          <h3>قسم الإدارة المالية</h3>
+          <div id="financial-management-container" class="financial-management-container"></div>
+        </div>
+
+        <div class="dept-box">
+          <h3>قسم الإعلام</h3>
+          <div id="media-department-container" class="media-department-container"></div>
+        </div>
+
+
+        <div class="dept-box">
+          <h3>قسم المشتريات</h3>
+          <div id="purchasing-department-container" class="purchasing-department-container"></div>
+        </div>
+
+
+
+        <div class="dept-box">
+          <h3>مجلس الادارة</h3>
+          <div id="BoardofDirectors-container" class="BoardofDirectors-container "></div>
+        </div>
+
+
+
+
+      </div>
+
+    </section>
+
+    <section class="bottom-section-EmployeesPage">
+
+
+      <footer class="footer">
+        <p>Hadiyah Charity Association @2025 جميع الحقوق محفوظة لجمعية هدية الحاج والمعتمر </p>
+      </footer>
+    </section>
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="module" src="javaS.js"></script>
+</body>
+
+</html>

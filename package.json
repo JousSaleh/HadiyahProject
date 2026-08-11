@@ -1,0 +1,19 @@
+{
+  "name": "hadiyahproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "javaS.js",
+  "scripts": {
+   "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "firebase": "^12.12.0"
+  },
+  "devDependencies": {
+    "vite": "^8.0.8"
+  }
+}

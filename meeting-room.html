@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Css.css">
+
+  <title>غرفه الاجتماعات</title>
+</head>
+
+<body>
+
+  <header class="Header">
+    <a href="Home.html">
+      <img src="hadiyah.avif" class="HadiyahLogo" alt="Logo">
+    </a>
+
+
+
+    <div id="authButtons">
+      <button onclick="openModal('loginModal')" class="auth-btn">تسجيل دخول</button>
+      <button onclick="openModal('registerModal')" class="auth-btn">إنشاء حساب</button>
+    </div>
+
+
+    <div id="user-options" style="display: none;">
+      <button onclick="logout()" class="auth-btn">تسجيل خروج</button>
+    </div>
+
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>تسجيل الدخول</h2>
+        <input type="email" id="loginEmail" placeholder="البريد الإلكتروني">
+        <input type="password" id="loginPassword" placeholder="كلمة المرور">
+        <button class="Register-btn" onclick="login()">دخول</button>
+      </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('registerModal')">&times;</span>
+        <h2>إنشاء حساب جديد</h2>
+        <input type="text" id="regName" placeholder="الاسم الكامل">
+        <input type="email" id="regEmail" placeholder="البريد الإلكتروني">
+
+
+
+        <select id="regDepartment" class="regDepartmentOPtion">
+          <option value="" disabled selected>اختر القسم</option>
+          <option value="قسم تقنية المعلومات">قسم تقنية المعلومات </option>
+          <option value="الموارد البشرية">الموارد البشرية</option>
+          <option value="قسم التسويق">قسم التسويق </option>
+          <option value="الإدارة">الإدارة</option>
+          <option value="قسم الإدارة المالية">قسم الإدارة المالية</option>
+          <option value="قسم الإعلام">قسم الإعلام</option>
+          <option value="قسم المشتريات">قسم المشتريات</option>
+          <option value="مجلس الادارة">مجلس الادارة</option>
+        </select>
+
+
+
+
+
+        <input type="password" id="regPassword" placeholder="كلمة المرور">
+        <button class="Register-btn" onclick="register()">إنشاء الحساب</button>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+
+
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      <img src="tiles_12613180.png" alt="menu">
+
+
+    </button>
+
+
+
+    <div class="sidebar" id="sidebar" onmouseleave="closeMenu()">
+      <div id="user-sidebar-info" class="sidebar-info">
+        <p><span id="display-user-name"></span></p>
+        <p> <span id="display-user-dept"></span></p>
+      </div>
+
+      <div class="menu-box">
+
+                <a href="Home.html">
+                    <span>الرئيسية</span>
+                    <!--<img src="homepage.png" alt="">-->
+                </a>
+
+                <a href="home.html">
+                    <span>الحجوزات</span>
+                    <!--<img src="booking-online.png" alt="">-->
+                </a>
+
+                <a href="home.html">
+                    <span>جدولة القاعات</span>
+                    <!--<img src="calendar.png" alt="">-->
+                </a>
+
+                <a href="Invitations.html">
+                    <span>الدعوات</span>
+                    <!--<img src="add-user.png" alt="">-->
+                </a>
+
+                <a href="account.html">
+                    <span>حسابي</span>
+                   <!-- <img src="profile.png" alt="">-->
+                </a>
+
+                <a href="Employees-Page.html">
+                    <span>الاقسام</span>
+                    <!--<img src="group-chat.png" alt="">-->
+                </a>
+
+      </div>
+      <img src="hadiyah.avif" id="menulogo">
+
+    </div>
+
+  </header>
+
+
+
+
+  <main dir="rtl" class="main-container-meetingRoom">
+
+    <section class="hero-section-meetingRoom">
+      <div class="hero-section-style-meetingRoom">
+        <h1 class="main-title-meetingRoom"> غــــــــرفــــــــة الاجــــــــتـــــــماعـــــــــات</h1>
+      </div>
+    </section>
+
+    <section class="second-section-meetingRoom">
+
+
+
+
+      <div class="Booking-container-meetingRoom">
+
+
+
+        <div class="Meeting-topic-meetingRoom">
+          <lapel> ❅ موضوع الاجتماع ❅</lapel>
+          <input type="text" id="Meeting-topic-meetingRoom#id">
+        </div>
+
+
+        <div class="Meeting-agenda-meetingRoom">
+          <lapel>❅ اجندة الاجتماع ❅</lapel>
+          <textarea type="text" id="Meeting-agenda-meetingRoom#id"></textarea>
+        </div>
+
+
+
+
+
+
+        <div class="time-container-meetingRoom">
+          <div class="text-booking-card-meetingRoom">
+            <h2>❅ أختر التاريخ والوقت ❅</h2>
+
+
+            <div class="input-group-meetingRoom">
+              <label>اختر التاريخ:</label>
+              <input type="date" id="date-input-meetingRoom">
+            </div>
+
+            <!-- في قسم غرفة الاجتماعات -->
+<div class="input-group-meetingRoom">
+    <label>من ساعة:</label>
+    <input type="time" id="startTime-input-meetingRoom">
+</div>
+<div class="input-group-meetingRoom">
+    <label>إلى ساعة:</label>
+    <input type="time" id="endTime-input-meetingRoom">
+</div>
+          </div>
+        </div>
+
+
+
+        <div class="invite-container-meetingRoom">
+          <div class="text-invite-container-meetingRoom">
+            <label> ❅ أختر المدعويين ❅ </label>
+          </div>
+          <div class="search-invite-container-meetingRoom">
+            <input type="text" id="userSearchInput"autocomplete="off" 
+       readonly 
+       onfocus="this.removeAttribute('readonly');"
+     
+        placeholder="ابحث عن اسم أو قسم..." onkeyup="filterUsersList()">
+          </div>
+          <div id="invitee-list" class="users-scroll-area">
+            <p class="empty-msg">جاري تحميل المستخدمين...</p>
+          </div>
+        </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <button class="btn-reserve-meetingRoom " id="reserve-meeting-meetingRoom"
+          onclick="reserveRoom('غرفة الاجتماعات')">احجز الآن</button>
+
+
+
+
+      </div>
+
+
+
+
+
+
+    </section>
+
+    <section class="bottom-section-meetingRoom">
+
+
+      <footer class="footer">
+        <p>Hadiyah Charity Association @2025 جميع الحقوق محفوظة لجمعية هدية الحاج والمعتمر </p>
+      </footer>
+    </section>
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="module" src="javaS.js"></script>
+</body>
+
+</html>
